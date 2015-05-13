@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour {
 
 	public GameObject ObjectToSpawn1, ObjectToSpawn2;
 	public int totalToSpawn = 4;
-	public float spawnInterval = 20.0f;
+	public float spawnInterval = 40.0f;
 	public GUIText scoreText;
 	public GUIText health;
 	public GUIText bullets;
@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour {
 	private Color faderColor;
 	private static bool gameOver;
 	public GUIText reloadMessage;
+	public GUIText newWaveMessage;
 	public bool printReload, won;
 	public GameObject particles, particles2;
 	private int winScore;
@@ -35,16 +36,16 @@ public class Spawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		totalSpawn = totalToSpawn;
+
 		scoreText.text = "Score: 0";
 		particles.SetActive(false);
 		particles2.SetActive(false);
-		StartCoroutine("SpawnRandom");
+
 		gameOver = false;
 		faderColor = fader.renderer.material.color;
 		reloadMessage.text = "";
+		newWaveMessage.text = "";
 		won = false;
-		winScore = (50 * totalSpawn*2) + (100 * totalSpawn * 2);
 		GameObject selectorObject = GameObject.FindWithTag ("Selection");
 		if (selectorObject != null)
 		{
@@ -63,11 +64,15 @@ public class Spawner : MonoBehaviour {
 
 		updateScore (0);
 		avatar.sprite = chosen;
+		totalSpawn = totalToSpawn;
+		winScore = (50 * totalSpawn*3) + (100 * totalSpawn * 3);
+		StartCoroutine("SpawnRandom");
 	}
 
 	void setKnight(){
-if (selector != null) {
-			selected=selector.getChosen();
+			if (selector != null) {
+				selected=selector.getChosen();
+				totalToSpawn=selector.getWaves();
 			if (selected == 1) {
 
 				lives = 10;
@@ -120,12 +125,14 @@ if (selector != null) {
 	IEnumerator SpawnRandom(){
 	while (totalToSpawn>0) {
 
+
 			GameObject clone;
 			clone = Instantiate(ObjectToSpawn1, randomPosition(), Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up)) as GameObject;
 			clone = Instantiate(ObjectToSpawn2, randomPosition(), Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up)) as GameObject;
 			clone = Instantiate(ObjectToSpawn1, randomPosition(), Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up)) as GameObject;
 			clone = Instantiate(ObjectToSpawn2, randomPosition(), Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up)) as GameObject;
 			totalToSpawn=totalToSpawn-1;
+			StartCoroutine("newWave");
 			yield return new WaitForSeconds(spawnInterval);
 		
 		}
@@ -192,6 +199,26 @@ if (selector != null) {
 		reloadMessage.text="RELOAD NOW";
 		yield return new WaitForSeconds(0.5f);
 		reloadMessage.text="";
+		yield return new WaitForSeconds(0.5f);
+		
+	}
+	IEnumerator newWave() {
+		int curWave = totalSpawn - totalToSpawn;
+		newWaveMessage.text="WAVE "+curWave+"/"+totalSpawn+" INCOMING";
+		yield return new WaitForSeconds(0.8f);
+		newWaveMessage.text="";
+		yield return new WaitForSeconds(0.5f);
+		newWaveMessage.text="WAVE "+curWave+"/"+totalSpawn+" INCOMING";
+		yield return new WaitForSeconds(0.8f);
+		newWaveMessage.text="";
+		yield return new WaitForSeconds(0.5f);
+		newWaveMessage.text="WAVE "+curWave+"/"+totalSpawn+" INCOMING";
+		yield return new WaitForSeconds(0.8f);
+		newWaveMessage.text="";
+		yield return new WaitForSeconds(0.5f);
+		newWaveMessage.text="WAVE "+curWave+"/"+totalSpawn+" INCOMING";
+		yield return new WaitForSeconds(0.8f);
+		newWaveMessage.text="";
 		yield return new WaitForSeconds(0.5f);
 		
 	}
