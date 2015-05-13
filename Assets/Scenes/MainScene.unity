@@ -244,8 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d351c0286267462183dc808fac2748e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 135504, guid: 4cd33e70ae41440389b9ee1a50201b47, type: 2}
-  speed: 20
+  projectile: {fileID: 116220, guid: a6d4948d9b50f442f8c3e99571b092b1, type: 2}
+  speed: 15
   shoot: {fileID: 8300000, guid: 0af3d513283ae634480aa98a0d2da839, type: 3}
 --- !u!82 &211490837
 AudioSource:
@@ -1285,7 +1285,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484130, guid: ec1a034c0a5e040e5918fd74d89b192d, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 184130, guid: ec1a034c0a5e040e5918fd74d89b192d, type: 2}
       propertyPath: m_Name
@@ -2781,8 +2781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d351c0286267462183dc808fac2748e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 135504, guid: 4cd33e70ae41440389b9ee1a50201b47, type: 2}
-  speed: 20
+  projectile: {fileID: 116220, guid: a6d4948d9b50f442f8c3e99571b092b1, type: 2}
+  speed: 15
   shoot: {fileID: 8300000, guid: 0af3d513283ae634480aa98a0d2da839, type: 3}
 --- !u!82 &895260891
 AudioSource:
@@ -3066,7 +3066,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 402520, guid: 718b1a97fcd794553b506f5713928528, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 102520, guid: 718b1a97fcd794553b506f5713928528, type: 2}
       propertyPath: m_IsActive

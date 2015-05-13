@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour {
 	public GameObject blue, greenPurple;
 	private int selected;
 	private static Sprite chosen;
-
+	public AudioClip hurt;
 	// Use this for initialization
 	void Start () {
 
@@ -151,6 +151,7 @@ public class Spawner : MonoBehaviour {
 	}
 	public void updateHealth(){
 		lives--;
+		audio.PlayOneShot (hurt);
 		health.text="Health: "+lives;
 	}
 	public void updateBullets(){

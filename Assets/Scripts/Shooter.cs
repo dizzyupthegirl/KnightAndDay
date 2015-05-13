@@ -26,7 +26,8 @@ public class Shooter : MonoBehaviour {
 			controller.updateBullets();
 			audio.PlayOneShot(shoot, 0.7F);
 			GameObject clone;
-			clone = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+			Vector3 spawn=transform.position-new Vector3(0.0f,0.3f,0.0f);
+			clone = Instantiate(projectile,spawn , transform.rotation) as GameObject;
 			clone.rigidbody.velocity = transform.TransformDirection(Vector3.forward * speed);
 			Destroy(clone, 6.0f);
 		}

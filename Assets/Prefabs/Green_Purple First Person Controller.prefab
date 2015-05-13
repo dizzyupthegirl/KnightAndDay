@@ -456,8 +456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d351c0286267462183dc808fac2748e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 135504, guid: 4cd33e70ae41440389b9ee1a50201b47, type: 2}
-  speed: 20
+  projectile: {fileID: 116220, guid: a6d4948d9b50f442f8c3e99571b092b1, type: 2}
+  speed: 15
   shoot: {fileID: 8300000, guid: 0af3d513283ae634480aa98a0d2da839, type: 3}
 --- !u!114 &11484130
 MonoBehaviour:
